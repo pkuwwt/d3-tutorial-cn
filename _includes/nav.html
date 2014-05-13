@@ -1,6 +1,12 @@
 <div>
        {% assign sorted_pages = site.pages | sort:"name" %}
        {% for p in sorted_pages %}
-        	<a href="{{site.url}}{{ p.url }}">{{ p.title }}  |  </a>
+        	<a href="{{site.url}}{{ p.url }}">
+				{% if page.title == p.title %}
+					<u>{{ p.title }}</u>  
+				{% else %}
+					{{ p.title }} 
+				{% endif %}
+				|  </a>
         {% endfor %}
 </dv>
