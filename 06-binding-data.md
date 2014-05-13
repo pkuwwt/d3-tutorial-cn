@@ -44,7 +44,7 @@ d3.select("body").selectAll("p")
     .text("New paragraph!");
 {% endhighlight %}
 
-在它的[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/index.html)中，你可以看到5个新段落，每个的内容都一样。下面是解释。
+在它的[测试页面](htmls/60-binding-data-index.html)中，你可以看到5个新段落，每个的内容都一样。下面是解释。
 
 `d3.select("body")` ---- 找到DOM中的`body`，然后将其引用传递给链中下一个方法。
 
@@ -59,9 +59,9 @@ d3.select("body").selectAll("p")
 `.text("New paragraph!")` ---- 接收新生成的`p`元素的引用，然后插入(覆盖)文本。
 
 ## 绑定后的验证
-我们的数据已经经过读取，解析，并绑定到了DOM中的新的`p`元素上。不管你信不信，反正我信了。回到[测试页](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/index.html)，打开web inspector，并刷新一下。
+我们的数据已经经过读取，解析，并绑定到了DOM中的新的`p`元素上。不管你信不信，反正我信了。回到[测试页](htmls/60-binding-data-index.html)，打开web inspector，并刷新一下。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/1.png)
+![](images/60-binding-data-1.png)
 
 不错，确实有5个段落，但是数据都去哪儿了？点击web inspector的Console标签，输入如下JavaScript/D3代码，并回车。
 
@@ -69,19 +69,19 @@ d3.select("body").selectAll("p")
 console.log(d3.selectAll("p"))
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/2.png)
+![](images/60-binding-data-2.png)
 
 看到没有，返回一个数组。点击小灰三角，展开数组内容：
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/3.png)
+![](images/60-binding-data-3.png)
 
 你可能看到5个`HTMLParagraphElements`，序号从0到4。点击小三角查看第一个(序号为0)。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/4.png)
+![](images/60-binding-data-4.png)
 
 看到没有？没看到的话，我给你指出来。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/60-binding-data/5.png)
+![](images/60-binding-data-5.png)
 
 我们的第一个数据值，数字5，刚好就是第一段落的`__data__`属性。查看其它段落元素，你会发现它们的`__data__`属性依次为: 10,15,20,25。它们刚好就是我们指定的数据集内容。
 

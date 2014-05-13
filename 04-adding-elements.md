@@ -24,9 +24,9 @@ permalink: "adding-elements.html"
 </html>
 {% endhighlight %}
 
-此模板的测试页面在[这里](http://alignedleft.com/content/03-tutorials/01-d3/40-adding-elements/1.html)。里面其实啥也没有，不过打开你的web inspector，你应该看到如下结果：
+此模板的测试页面在[这里](htmls/40-adding-elements-1.html)。里面其实啥也没有，不过打开你的web inspector，你应该看到如下结果：
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/40-adding-elements/1.png)
+![](images/40-adding-elements-1.png)
 
 然后，修改一下HTML文件，将`script`标签中注释的部分替换为
 
@@ -34,9 +34,9 @@ permalink: "adding-elements.html"
 d3.select("body").append("p").text("New paragraph!");
 {% endhighlight %}
 
-保存并刷新浏览器(或浏览相应的[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/40-adding-elements/2.html))，有了！刚刚还空空如也的浏览器中出现了一行字，而web inspector中的内容变成：
+保存并刷新浏览器(或浏览相应的[测试页面](htmls/40-adding-elements-2.html))，有了！刚刚还空空如也的浏览器中出现了一行字，而web inspector中的内容变成：
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/40-adding-elements/2.png)
+![](images/40-adding-elements-2.png)
 
 看出差别没？在DOM中，出现了一个新的段落元素，而它是实时生成的。这当然还没什么可兴奋的，但是等着吧，马上我们就会用类似的技术动态生成成百上千个元素，而且每个元素都对应于你的一部分数据。
 

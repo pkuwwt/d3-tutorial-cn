@@ -110,7 +110,7 @@ JavaScript是一种动态脚本语言，它可以向浏览器发送命令，从�
 ## 开发工具
 熟悉浏览器的开发工具很重要。在一个基于WebKit的浏览器中(比如Safari或Chrome)，你可以打开"web inspector"，界面如下(Chrome中快捷键是Ctrl+Shift+I，也可以在Tools菜单中找到)
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/20-fundamentals/web_inspector.png)
+![](images/20-fundamentals-web_inspector.png)
 
 浏览器的"View Source"显示的是原始HTML页面的源码，而"web inspector"则可以显示DOM的当前结构，也就是执行完JavaScript之后的网页内容。在web inspector中，你可以观察到元素的变化。你还可以使用JavaScript终端(console)来调试代码。参考[debugging HTML,CSS, and JavaScript with the web inspector and console](http://developer.apple.com/library/safari/documentation/appleapplications/Conceptual/Safari_Developer_Guide/DebuggingYourWebsite/DebuggingYourWebsite.html#//apple_ref/doc/uid/TP40007874-CH8-SW3)。
 

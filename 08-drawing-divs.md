@@ -97,9 +97,9 @@ d3.select("body").selectAll("div")
     .attr("class", "bar");
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/80-drawing-divs/1.png)
+![](images/80-drawing-divs-1.png)
 
-这里是[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/80-drawing-divs/1.html)。一定要看一下它的源码，并打开你的web inspector来查看运行详情。你会看到5个垂直柱子，每个对应于数据集中的数据点。因为中间没有空格，所以整个看起来像个大矩形。
+这里是[测试页面](htmls/80-drawing-divs-1.html)。一定要看一下它的源码，并打开你的web inspector来查看运行详情。你会看到5个垂直柱子，每个对应于数据集中的数据点。因为中间没有空格，所以整个看起来像个大矩形。
 
 ## 设置样式
 `style()`方法用于将CSS属性和值直接应用到HTML元素上。该方法等价于将样式(style)中的CSS规则直接写到HTML元素中，比如
@@ -116,9 +116,9 @@ d3.select("body").selectAll("div")
 });
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/80-drawing-divs/2.png)
+![](images/80-drawing-divs-2.png)
 
-这里是[测试结果页面](http://alignedleft.com/content/03-tutorials/01-d3/80-drawing-divs/2.html)。展现在你面前的是一个小型柱状图。
+这里是[测试结果页面](htmls/80-drawing-divs-2.html)。展现在你面前的是一个小型柱状图。
 
 当D3遍历每个数据点时，`d`的值会被设置为相应的数据点。所以我们将`height`值设置为`d`(当前数据值)加上`px`(表示像素单元)。因此，结果应该为5px,10px,15px,20px和25px。
 
@@ -137,10 +137,10 @@ d3.select("body").selectAll("div")
 margin-right: 2px;
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/80-drawing-divs/3.png)
+![](images/80-drawing-divs-3.png)
 
 还不错，可以当作SIGGRAPH的插图了。
 
-这里是最终的[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/80-drawing-divs/3.html)。再次提醒，务必亲自认真看一下源码，并使用web inspector来比较原始HTML与最终DOM的差异。
+这里是最终的[测试页面](htmls/80-drawing-divs-3.html)。再次提醒，务必亲自认真看一下源码，并使用web inspector来比较原始HTML与最终DOM的差异。
 
 

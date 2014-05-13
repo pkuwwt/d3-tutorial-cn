@@ -30,7 +30,7 @@ D3最擅长于生成和操纵SVG图像来进行可视化。绘制`div`或其它�
 
 没看到? 尝试在空白位置点击右键，再选择"Inspect Element"，你的浏览器应该得到类似于下面的结果
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/100-an-svg-primer/1.png)
+![](images/100-an-svg-primer-1.png)
 
 注意，这里确实有一个`svg`元素，而它刚好就占用了宽为500像素高为50像素的一个区域。只不过，空白的图像确实没什么好看的。
 

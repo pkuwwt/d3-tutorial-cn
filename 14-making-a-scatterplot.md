@@ -69,9 +69,9 @@ svg.selectAll("circle")
    })
    .attr("r", 5);
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/1.png)
+![](images/140-making-a-scatterplot-1.png)
 
-[这里是散点图结果](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/1.html)。
+[这里是散点图结果](htmls/140-making-a-scatterplot-1.html)。
 
 注意，在设置`cx`和`cy`时我们访问了数据值。当使用`function(d)`时，D3自动将当前数据值传递给函数的参数`d`。在本例中，当前的数据值为大数组`dataset`中的元素，这些元素本身则是小数组。
 
@@ -95,7 +95,7 @@ dataset[5] returns [410, 12]
 dataset[5][1] returns 12
 {% endhighlight %}
 
-不相信我？再看一看之前的[散点图结果](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/1.html)，在JavaScript终端中输入`dataset[5]`或`dataset[5][1]`，看看结果是什么。
+不相信我？再看一看之前的[散点图结果](htmls/140-making-a-scatterplot-1.html)，在JavaScript终端中输入`dataset[5]`或`dataset[5][1]`，看看结果是什么。
 
 ## 大小
 如果你想让每个圆的大小不同，比如让半径对应于数据点的y值，我们可以定制函数来设置`r`的值。
@@ -105,9 +105,9 @@ dataset[5][1] returns 12
     return Math.sqrt(h - d[1]);
 });
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/2.png)
+![](images/140-making-a-scatterplot-2.png)
 
-[结果](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/2.html)既不漂亮也没什么用，但是这演示了如何结合`d`和中括号，来访问数据值，并设置`r`的值。
+[结果](htmls/140-making-a-scatterplot-2.html)既不漂亮也没什么用，但是这演示了如何结合`d`和中括号，来访问数据值，并设置`r`的值。
 
 ## 标签
 现在，让我们用`text`元素来为数据点指定标签。这里，我采用了之前柱状图中的标签代码。
@@ -149,9 +149,9 @@ svg.selectAll("text")
    .attr("font-size", "11px")
    .attr("fill", "red");
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/3.png)
+![](images/140-making-a-scatterplot-3.png)
 
-[这里](http://alignedleft.com/content/03-tutorials/01-d3/140-making-a-scatterplot/3.html)是测试页面。
+[这里](htmls/140-making-a-scatterplot-3.html)是测试页面。
 
 ## 下一步
 我希望，到现在，你已经清楚了D3的一些核心概念: 加载数据，生成新元素，使用数据值设置元素的属性。

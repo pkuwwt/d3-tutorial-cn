@@ -47,9 +47,9 @@ var svg = d3.select("body")
   .attr("height", 50);
 {% endhighlight %}
 
-从[结果测试页](http://alignedleft.com/content/03-tutorials/01-d3/110-drawing-svgs/1.html)中什么也看不到，但是你确实可以通过`web inspector`看到DOM中有一个空的SVG元素。
+从[结果测试页](htmls/110-drawing-svgs-1.html)中什么也看不到，但是你确实可以通过`web inspector`看到DOM中有一个空的SVG元素。
 
-为了舒服一点，我建议将宽度和高度值存为变量，放在代码开始醒目的位置，比如([测试页面](http://alignedleft.com/content/03-tutorials/01-d3/110-drawing-svgs/2.html))
+为了舒服一点，我建议将宽度和高度值存为变量，放在代码开始醒目的位置，比如([测试页面](htmls/110-drawing-svgs-2.html))
 
 {% highlight javascript %}
 //Width and height
@@ -105,9 +105,9 @@ circles.attr("cx", function(d, i) {
 			return d;
 	});
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/110-drawing-svgs/1.png)
+![](images/110-drawing-svgs-1.png)
 
-对着[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/110-drawing-svgs/3.html)膜拜一下。我们再逐行理解这句代码。
+对着[测试页面](htmls/110-drawing-svgs-3.html)膜拜一下。我们再逐行理解这句代码。
 
 {% highlight javascript %}
 circles.attr("cx", function(d, i) {
@@ -154,8 +154,8 @@ circles.attr("cx", function(d, i) {
 });
 {% endhighlight %}
 
-于是，我们得到下面的图像([测试页面](http://alignedleft.com/content/03-tutorials/01-d3/110-drawing-svgs/4.html))
-![](http://alignedleft.com/content/03-tutorials/01-d3/110-drawing-svgs/2.png)
+于是，我们得到下面的图像([测试页面](htmls/110-drawing-svgs-4.html))
+![](images/110-drawing-svgs-2.png)
 
 当然，你可以混合和组合各种属性，并定制各种各样的函数来设置属性。数据可视化的技巧本来就在于选择合适的映射，以便让你的数据的视觉表现派上用场，并被用户所理解。
 

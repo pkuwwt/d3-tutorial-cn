@@ -4,13 +4,13 @@ title: data()方法的魔力
 permalink: "the-power-of-data.html"
 ---
 
-我们考虑一个简单的[柱状图](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/1.html)上，它是用`div`画的，并基于如下简单数据集。
+我们考虑一个简单的[柱状图](htmls/90-the-power-of-data-1.html)上，它是用`div`画的，并基于如下简单数据集。
 
 {% highlight javascript %}
 var dataset = [ 5, 10, 15, 20, 25 ];
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/1.png)
+![](images/90-the-power-of-data-1.png)
 
 很强大，但真实世界数据绝非如此简单。我们可以进一步修改数据，得到一个不一样的柱状图。
 
@@ -18,7 +18,7 @@ var dataset = [ 5, 10, 15, 20, 25 ];
 var dataset = [ 25, 7, 5, 26, 11 ];
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/2.png)
+![](images/90-the-power-of-data-2.png)
 
 而且，还可以不止有5个数据值，想加多少加多少！
 
@@ -28,7 +28,7 @@ var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
                 24, 18, 25, 9, 3 ];
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/3.png)
+![](images/90-the-power-of-data-3.png)
 
 我们已经可以画25个数据值了！那如何让D3自动按需扩展呢？
 
@@ -54,11 +54,11 @@ d3.select("body").selectAll("div")
 
 ## 随机数据
 
-有时候，为了测试或纯粹好玩，你可以生成一些随机数据。[这里](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/4.html)就是一个例子。注意，你每次重新加载网页后，柱状图都是变化的。
+有时候，为了测试或纯粹好玩，你可以生成一些随机数据。[这里](htmls/90-the-power-of-data-4.html)就是一个例子。注意，你每次重新加载网页后，柱状图都是变化的。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/4.png)
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/5.png)
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/6.png)
+![](images/90-the-power-of-data-4.png)
+![](images/90-the-power-of-data-5.png)
+![](images/90-the-power-of-data-6.png)
 
 查看源码，你会看到如下代码。
 
@@ -79,7 +79,7 @@ for (var i = 0; i < 25; i++) {           //Loop 25 times
 
 为了验证一下，你可以打开JavaScript终端(console)，并输入`console.log(dataset)`。你应该看到一个随机的长为25的数组。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/7.png)
+![](images/90-the-power-of-data-7.png)
 
 注意，它们都是带小数的或浮点数(14.793717765714973)，而非我们所需的整数(14)。在我们现在的例子，浮点数也可以用，但如果你需要或坚持要用整数，你可以使用JavaScript的`Math.round()`方法。比如，你可以将下面的代码
 
@@ -92,9 +92,9 @@ var newNumber = Math.random() * 30;
 var newNumber = Math.round(Math.random() * 30);
 {% endhighlight %}
 
-[尝试一下该代码](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/5.html)，然后使用终端来验证，你会发现它们确实都已经变成了整数。
+[尝试一下该代码](htmls/90-the-power-of-data-5.html)，然后使用终端来验证，你会发现它们确实都已经变成了整数。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/90-the-power-of-data/8.png)
+![](images/90-the-power-of-data-8.png)
 
 之前的示例都是基于简单的HTML元素，后面的教程中，我们会探讨基于SVG的可视化。
 

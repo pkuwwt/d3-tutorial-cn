@@ -22,7 +22,7 @@ d3.select("body").selectAll("p")
     .text(function(d) { return d; });
 {% endhighlight %}
 
-再看一下新的[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/70-using-your-data/1.html)。
+再看一下新的[测试页面](htmls/70-using-your-data-1.html)。
 
 哇噢！我们的数据变成了每个段落的内容，这都要归功于`data()`方法。你看，将方法链接到一起之后，每次调用完`data()`方法都会生成一个接受`d`作为输入的匿名函数。对于每个当前元素，`data()`方法确保了`d`被设置为原始数据集中的对应值。
 
@@ -49,7 +49,7 @@ function(d) {
 
 它被嵌入到D3的`text()`函数中，所以此匿名函数的返回值会传递给`text()`。
 
-不过，我们可以更酷一点，因为，这些匿名函数是随意定制的。当然，编写自己的JavaScript代码有可能是乐趣，也有可能是痛苦。但不管怎样，重点在于，我们可以自由地定制了。比如，你可以增加一些其它的文字，下面的修改会产生[新的结果](http://alignedleft.com/content/03-tutorials/01-d3/70-using-your-data/2.html)。
+不过，我们可以更酷一点，因为，这些匿名函数是随意定制的。当然，编写自己的JavaScript代码有可能是乐趣，也有可能是痛苦。但不管怎样，重点在于，我们可以自由地定制了。比如，你可以增加一些其它的文字，下面的修改会产生[新的结果](htmls/70-using-your-data-2.html)。
 
 {% highlight javascript %}
 .text(function(d) {
@@ -102,7 +102,7 @@ function(d) {
 ## 不仅仅是文本
 当我们考虑D3除`text()`之外的其它方法，比如`attr()`和`style()`时，事情会有趣地多。这两个函数分别用于设置所选元素的HTML属性和CSS属性。
 
-比如，在我们上面的代码中增加一行会得到不一样的[结果](http://alignedleft.com/content/03-tutorials/01-d3/70-using-your-data/3.html)。
+比如，在我们上面的代码中增加一行会得到不一样的[结果](htmls/70-using-your-data-3.html)。
 
 {% highlight javascript %}
 .style("color", "red");
@@ -119,7 +119,7 @@ function(d) {
 });
 {% endhighlight %}
 
-[这里](http://alignedleft.com/content/03-tutorials/01-d3/70-using-your-data/4.html)是显示效果。注意，前3行仍然是黑的，一旦`d`值超过了阈值15，文本就开始变红了。
+[这里](htmls/70-using-your-data-4.html)是显示效果。注意，前3行仍然是黑的，一旦`d`值超过了阈值15，文本就开始变红了。
 
 在下一个教程中，我们会使用`attr()`和`style()`来操纵`div`标签，以获得简单的柱状图。这将是我们第一个可视化结果。
 

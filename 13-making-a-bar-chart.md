@@ -10,7 +10,7 @@ permalink: "making-a-bar-chart.html"
 
 
 ## 原来的柱状图
-[这里](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/1.html)上次画的柱状图，只不过用了新的数据。
+[这里](htmls/130-making-a-bar-chart-1.html)上次画的柱状图，只不过用了新的数据。
 
 {% highlight javascript %}
 var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
@@ -27,7 +27,7 @@ d3.select("body").selectAll("div")
     });
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/1.png)
+![](images/130-making-a-bar-chart-1.png)
 
 虽然，暂时还想象不出来，但是这个基于`div`柱状图肯定能变得更好。
 
@@ -71,11 +71,11 @@ svg.selectAll("rect")
 
 对于这20个占位元素，`append("rect")`在相应的位置上插入一个`rect`元素。我们在前面的SVG初步中已经了解到，每个`rect`必须有`x`,`y`,`width`和`height`属性。所以，我们使用`attr()`来为每个新生成的`rect`添加这些属性。
 
-[结果](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/2.html)漂亮否？当然很丑啦！
+[结果](htmls/130-making-a-bar-chart-2.html)漂亮否？当然很丑啦！
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/2.png)
+![](images/130-making-a-bar-chart-2.png)
 
-好吧！我们确实生成了20根柱子，不信，用web inspector查看一下[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/2.html)的DOM。只不过它们的`x`,`y`,`width`和`height`属性值都是一样的，因此重叠了。这还不是一个数据可视化。
+好吧！我们确实生成了20根柱子，不信，用web inspector查看一下[测试页面](htmls/130-making-a-bar-chart-2.html)的DOM。只不过它们的`x`,`y`,`width`和`height`属性值都是一样的，因此重叠了。这还不是一个数据可视化。
 
 我们先解决重叠的问题。让`x`的值不再为零，而是根据`i`值(也就是数据集中的每个值的位置)动态地变化。让第1个柱子的位置为0，第2个柱子位置为21，接下来是42，依此类推。
 
@@ -85,13 +85,13 @@ svg.selectAll("rect")
 })
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/3.png)
+![](images/130-making-a-bar-chart-3.png)
 
-这里是该代码的[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/3.html)。
+这里是该代码的[测试页面](htmls/130-making-a-bar-chart-3.html)。
 
 成功了，但仍然不够灵活。如果数据集太长，则它们会向右延伸到SVG范围之外。因为每个柱子宽度为20，相隔1个像元，因此宽为500个像元的SVG只能容纳23个数据点。比如，下图中的第24个柱子就被裁掉了。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/4.png)
+![](images/130-making-a-bar-chart-4.png)
 
 因此，在代码中使用灵活和动态的坐标是个好习惯，比如这里的高度值，宽度值，x和y值。只有这样，可视化结果才能有效反映数据的变化。
 
@@ -104,12 +104,12 @@ svg.selectAll("rect")
 {% endhighlight %}
 
 注意，`x`的值是如何与SVG宽度(`w`)和数据点个数(`dataset.length`)发生关系的。现在，我们可以高兴地看到我们的柱状图是均匀分布的。如果有20个数据点，效果为
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/5.png)
+![](images/130-making-a-bar-chart-5.png)
 
 5个数据点的效果则为
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/6.png)
+![](images/130-making-a-bar-chart-6.png)
 
-这里是我们目前的代码的[测试页面](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/4.html)。
+这里是我们目前的代码的[测试页面](htmls/130-making-a-bar-chart-4.html)。
 
 我们还需要让`width`值也动态变化，使得数据点变多时柱子会变窄，数据点变少时变宽。因此，我要增加一个新的变量`barPadding`，表示柱子之间的间隔。
 
@@ -126,21 +126,21 @@ var barPadding = 1;  // <-- New!
 .attr("width", w / dataset.length - barPadding)
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/7.png)
+![](images/130-making-a-bar-chart-7.png)
 
-[再次成功！](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/5.html)当数据点为20个时，柱子的宽度和x位置都正确地变化。5个时也是对的。
+[再次成功！](htmls/130-making-a-bar-chart-5.html)当数据点为20个时，柱子的宽度和x位置都正确地变化。5个时也是对的。
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/8.png)
+![](images/130-making-a-bar-chart-8.png)
 
 100个数据点的结果也符合预期。
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/9.png)
+![](images/130-making-a-bar-chart-9.png)
 
 最后，用数据值来设置每个柱子的`height`值。最简单的方法就是直接用数据值`d`来设置`height`
 {% highlight javascript %}
 .attr("height", function(d) {
     return d;
 });
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/10.png)
+![](images/130-making-a-bar-chart-10.png)
 
 看起来有些矮。我们可以放大一些。
 
@@ -148,7 +148,7 @@ var barPadding = 1;  // <-- New!
 .attr("height", function(d) {
     return d * 4;  // <-- Times four!
 });
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/11.png)
+![](images/130-making-a-bar-chart-11.png)
 
 唉，不容易啊。可是如果想要让柱子朝上增长而不是现在的朝下，怎么办？这不要怪D3，要怪就怪SVG。
 
@@ -170,9 +170,9 @@ var barPadding = 1;  // <-- New!
 {% endhighlight %}
 
 然后，类似地将`d`改成`d*4`，实现垂直方向的拉伸。(设置`y`和`height`的代码都要改。后面，我们会学习D3的缩放功能，这种方式更好用。)
-	![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/13.png)
+	![](images/130-making-a-bar-chart-13.png)
 
-[这里](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/6.html)是测试页面。
+[这里](htmls/130-making-a-bar-chart-6.html)是测试页面。
 
 ## 颜色
 添加颜色相对简单。只需要使用`attr()`设置`fill`属性即可。
@@ -180,9 +180,9 @@ var barPadding = 1;  // <-- New!
 .attr("fill", "teal");
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/14.png)
+![](images/130-making-a-bar-chart-14.png)
 
-[这里](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/7.html)全青色的柱状图测试页面。但是，你一般会要求形态的颜色反映了数据的质量。即，将数据编码为颜色。在我们的例子中，数据被双重编码了，因为高度和颜色都用到了数据值。
+[这里](htmls/130-making-a-bar-chart-7.html)全青色的柱状图测试页面。但是，你一般会要求形态的颜色反映了数据的质量。即，将数据编码为颜色。在我们的例子中，数据被双重编码了，因为高度和颜色都用到了数据值。
 
 用数据设计颜色同样只需要定制一个函数，函数中用`d`引用数据值。这里，我们将`"teal"`替换成一个定制的函数。
 
@@ -191,9 +191,9 @@ var barPadding = 1;  // <-- New!
     return "rgb(0, 0, " + (d * 10) + ")";
 });
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/15.png)
+![](images/130-making-a-bar-chart-15.png)
 
-[这里](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/8.html)是代码的测试页面。这个颜色编码并不是特别有用，但通过这个示例，你可以学到如何将数据转换为颜色。其中，`d`乘以10作为`rgb()`颜色定义中的蓝色值。所以`d`值越大(柱子更高)蓝色更多(更浅)，数值越小蓝色越少(更深，变黑)。
+[这里](htmls/130-making-a-bar-chart-8.html)是代码的测试页面。这个颜色编码并不是特别有用，但通过这个示例，你可以学到如何将数据转换为颜色。其中，`d`乘以10作为`rgb()`颜色定义中的蓝色值。所以`d`值越大(柱子更高)蓝色更多(更浅)，数值越小蓝色越少(更深，变黑)。
 
 ## 标签
 图形很炫，但是有时候，你需要在可视化中用文本显示真实地数值。因此我们需要用到标签，而用D3生成标签是非常非常容易的。
@@ -225,7 +225,7 @@ svg.selectAll("text")
         return h - (d * 4);
    });
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/16.png)
+![](images/130-making-a-bar-chart-16.png)
 
 啊！看到数据标签了。只不过它们都跑到柱子外面去了，并且有点歪。稍微往右下移动一点，即`x`和`y`值增加一点点即可。
 {% highlight javascript %}
@@ -236,7 +236,7 @@ svg.selectAll("text")
         return h - (d * 4) + 15;              // +15
    });
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/17.png)
+![](images/130-making-a-bar-chart-17.png)
 
 好点了，但不够清晰。继续改之。
 
@@ -245,9 +245,9 @@ svg.selectAll("text")
 .attr("font-size", "11px")
 .attr("fill", "white");
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/18.png)
+![](images/130-making-a-bar-chart-18.png)
 
-[棒极了！](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/9.html)如果你不是排版控的话，算是可以交差了。但是，如果你和我一样有这毛病，你会发现标签并没有完美地和柱子对齐。要修正这一点也很容易。我们可以使用SVG的`text-anchor`属性来让文本相对于`x`居中显示。
+[棒极了！](htmls/130-making-a-bar-chart-9.html)如果你不是排版控的话，算是可以交差了。但是，如果你和我一样有这毛病，你会发现标签并没有完美地和柱子对齐。要修正这一点也很容易。我们可以使用SVG的`text-anchor`属性来让文本相对于`x`居中显示。
 
 {% highlight javascript %}
 .attr("text-anchor", "middle")
@@ -267,7 +267,7 @@ svg.selectAll("text")
     })
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/19.png)
+![](images/130-making-a-bar-chart-19.png)
 
-[搞定。](http://alignedleft.com/content/03-tutorials/01-d3/130-making-a-bar-chart/10.html) 从柱状图开始，发挥我们的想象力吧。
+[搞定。](htmls/130-making-a-bar-chart-10.html) 从柱状图开始，发挥我们的想象力吧。
 
