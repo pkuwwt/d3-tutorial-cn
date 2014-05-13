@@ -1,0 +1,6 @@
+<div>
+       {% assign sorted_pages = site.pages | sort:"name" %}
+       {% for p in sorted_pages %}
+        	<a href="{{site.url}}{{ p.url }}">{{ p.title }}  |  </a>
+        {% endfor %}
+</dv>
