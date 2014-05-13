@@ -98,3 +98,23 @@ JavaScript是一种动态脚本语言，它可以向浏览器发送命令，从�
 </body>
 {% endhighlight %}
 
+它也可以存于外部文件中，然后在HTML的某个位置上引用(一般也是`head`)。
+
+{% highlight html %}
+<head>
+    <title>Page Title</title>
+    <script type="text/javascript" src="myscript.js"></script>
+</head>
+{% endhighlight %}
+
+## 开发工具
+熟悉浏览器的开发工具很重要。在一个基于WebKit的浏览器中(比如Safari或Chrome)，你可以打开"web inspector"，界面如下(Chrome中快捷键是Ctrl+Shift+I，也可以在Tools菜单中找到)
+
+![](http://alignedleft.com/content/03-tutorials/01-d3/20-fundamentals/web_inspector.png)
+
+浏览器的"View Source"显示的是原始HTML页面的源码，而"web inspector"则可以显示DOM的当前结构，也就是执行完JavaScript之后的网页内容。在web inspector中，你可以观察到元素的变化。你还可以使用JavaScript终端(console)来调试代码。参考[debugging HTML,CSS, and JavaScript with the web inspector and console](http://developer.apple.com/library/safari/documentation/appleapplications/Conceptual/Safari_Developer_Guide/DebuggingYourWebsite/DebuggingYourWebsite.html#//apple_ref/doc/uid/TP40007874-CH8-SW3)。
+
+## SVG
+D3最擅长于用可缩放矢量图形(Scalable Vector Graphics, SVG)来渲染可视化结果。SVG是一种基于文本的图像格式。意思是，你可以通过编写简单的标记式代码来设计一幅SVG图像，类似于用标签设计HTML。事实上，SVG代码可以直接用于HTML文档中。网页浏览器很久前就已经支持SVG格式了([IE除外](http://caniuse.com/#feat=svg))，但目前为止仍然不是很流行。
+
+下面是我用SVG编写的一个圆。
