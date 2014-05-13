@@ -1,6 +1,6 @@
 ---
 layout: default
-title: data()方法的魔力
+title: data()魔法
 permalink: "the-power-of-data.html"
 ---
 
