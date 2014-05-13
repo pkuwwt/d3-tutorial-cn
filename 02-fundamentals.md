@@ -54,3 +54,13 @@ margin: 10px;
 padding: 25px;
 {% endhighlight %}
 
+选择器和规则之间用大括号连接。
+
+{% highlight css %}
+p {
+    font-size: 12px;
+    line-height: 14px;
+    color: black;
+}
+{% endhighlight %}
+
