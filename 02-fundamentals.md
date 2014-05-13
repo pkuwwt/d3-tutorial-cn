@@ -118,3 +118,13 @@ JavaScript是一种动态脚本语言，它可以向浏览器发送命令，从�
 D3最擅长于用可缩放矢量图形(Scalable Vector Graphics, SVG)来渲染可视化结果。SVG是一种基于文本的图像格式。意思是，你可以通过编写简单的标记式代码来设计一幅SVG图像，类似于用标签设计HTML。事实上，SVG代码可以直接用于HTML文档中。网页浏览器很久前就已经支持SVG格式了([IE除外](http://caniuse.com/#feat=svg))，但目前为止仍然不是很流行。
 
 下面是我用SVG编写的一个圆。
+<svg width="50" height="50">
+    <circle cx="25" cy="25" r="22"
+     fill="blue" stroke="gray" stroke-width="2"/>
+</svg>
+{% highlight html %}
+<svg width="50" height="50">
+    <circle cx="25" cy="25" r="22"
+     fill="blue" stroke="gray" stroke-width="2"/>
+</svg>
+{% endhighlight %}
