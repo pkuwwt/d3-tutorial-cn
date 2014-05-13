@@ -2,7 +2,7 @@
        {% assign sorted_pages = site.pages | sort:"name" %}
        {% for p in sorted_pages %}
         	<a href="{{site.url}}{{ p.url }}">
-				{% if page.title == p.title %}
+				{% if page.url == p.url %}
 				<u style="color:green;font-size:20px;">{{ p.title }}</u>  
 				{% else %}
 					{{ p.title }} 

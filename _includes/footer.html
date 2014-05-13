@@ -1,4 +1,26 @@
 <section>
+	{% assign matched = false %}
+	{% assign prev_page = null %}
+	{% assign next_page = null %}
+	{% assign sorted_pages = site.pages | sort:"name" %}
+	{% for p in sorted_pages %}
+	{% if matched == true %} {% if next_page == null %}
+		{% assign next_page = p %} 
+	{% endif %} {% endif %}
+	{% if p.url == page.url %} {% assign matched = true %} {% endif %}
+	{% if matched == false %} 
+		{% assign prev_page = p %}
+	{% endif %} 
+	{% endfor %}
+	<div class="section-nav">
+		<div class="left align-right">
+		上一篇: {% if prev_page != null %}  <a href="{{site.url}}{{prev_page.url}}">{{prev_page.title}}</a>{% else %} 没有了{% endif %}
+		</div>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<div class="right align-left">
+			下一篇: {% if next_page != null %}  <a href="{{site.url}}{{next_page.url}}">{{next_page.title}}</a> {% else %} 没有了{% endif %}
+		</div>
+	</div>
 	<footer>
 		D3 tutorial Translated by <a href="https://pkuwwt.github.com/">pkuwwt</a><br>
         Original CopyRight belongs to <a href="http://alignedleft.com/">Scott Murray</a>
