@@ -64,3 +64,37 @@ p {
 }
 {% endhighlight %}
 
+D3使用CSS-样式选择器来定位需要操作的那些元素，因此理解CSS的使用是很重要的。
+
+CSS的规则可以直接放在网页的`head`中，如
+
+{% highlight html %}
+<head>
+    <style type="text/css">
+        p {
+            font-family: sans-serif;
+            color: lime;
+        }
+    </style>
+</head>
+{% endhighlight %}
+
+或单独存于后缀为`.css`的外部文件中，然后在网页的`head`中引用这个文件。
+{% highlight html %}
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+{% endhighlight %}
+
+## JavaScript
+JavaScript是一种动态脚本语言，它可以向浏览器发送命令，从而在网页加载之后再去修改网页内容。
+
+脚本可以直接放在HTML中的两个`script`标签之间。
+{% highlight html %}
+<body>
+    <script type="text/javascript">
+        alert("Hello, world!");
+    </script>
+</body>
+{% endhighlight %}
+
