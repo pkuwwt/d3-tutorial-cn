@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 绘制柱状图
+title: 用div绘制柱状图
 permalink: "drawing-divs.html"
 ---
 
