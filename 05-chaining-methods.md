@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 将方法链接起来
+title: 链式语法
 permalink: "chaining-methods.html"
 ---
 
