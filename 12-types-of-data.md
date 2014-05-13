@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 数据类型
-permalink: "types-of-data"
+permalink: "types-of-data.html"
 ---
 
 D3对输入数据的处理极为灵活。这次的主题是JavaScript和D3中常用的数据结构。
