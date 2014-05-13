@@ -1,8 +1,5 @@
-d3-tutorial-cn
+D3中文教程
 ==============
 
-Chinese version of D3 tutorial 
+翻译自[Scott Murray](http://alignedleft.com)的[D3 tutorials](http://alignedleft.com/tutorials/d3)
 
-<svg width="500" height="400">
-<circle cx="100" cy="100" r="20" fill="blue"/>
-</svg>
