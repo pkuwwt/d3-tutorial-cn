@@ -38,3 +38,19 @@ body {
 }
 {% endhighlight %}
 
+CSS样式包括选择器(selectors)和规则(rules)。选择器指定应用样式的元素，下面是示例:
+
+  - `h1`: 选择第1层标题
+  - `p`:  选择段落
+  - `.caption`: 选择`class`为`caption`的元素
+  - `#subnav`: 选择`ID`为`subnav`的元素
+
+规则是构成样式的内容，它是可累加的。示例如下:
+
+{% highlight css %}
+color: pink;
+background-color: yellow;
+margin: 10px;
+padding: 25px;
+{% endhighlight %}
+
