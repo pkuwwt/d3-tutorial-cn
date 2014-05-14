@@ -112,7 +112,7 @@ scale(500);  //Returns 350
 一般，你会在`attr()`方法中调用尺度函数，或者单独调用尺度函数。下面，我们将用动态尺度函数来修改我们的散点图可视化。
 
 ## 缩放散点图
-先回顾一下之前的散点数据集
+先回顾一下之前的散点图数据集
 
 {% highlight javascript %}
 var dataset = [
@@ -121,48 +121,71 @@ var dataset = [
               ];
 {% endhighlight %}
 
+回忆一下，此`dataset`是一个数组的数组。我们将数组每个元素的第1个值映射到了x轴上，第2个值映射到y轴上。先从x轴开始。
+
+扫一眼x值，貌似范围是5到480，所以一个合理的输入范围是0,500，对吧?
+
+有人要开始质疑我了。要是换了个数据怎么办？将输入范围写死了，就不够灵活了吧。你说对了。
+
+我们不能将输入范围取为固定值，但我们可以用诸如`min()`和`max()`之类的函数来动态地分析数组的范围。比如，下面的代码循环访问数组的每个x值，然后返回其中的最大值。
+
 {% highlight javascript %}
 d3.max(dataset, function(d) {    //Returns 480
     return d[0];  //References first value in each sub-array
 });
 {% endhighlight %}
 
+结合上述代码，我们在x轴上的尺度函数变成了
 {% highlight javascript %}
 var xScale = d3.scale.linear()
                      .domain([0, d3.max(dataset, function(d) { return d[0]; })])
                      .range([0, w]);
 {% endhighlight %}
 
+首先，要注意的是，我取了个`xScale`的名字，当然，你也可以取任意其它名字。但类似于`xScale`这样的变量名有助于记住其功能。
+
+其次，我将输入范围的下限设置成0，然而，你完全可以用`min()`来动态计算最小值。正如上限被设置为`dataset`的最大x值(这里是480)那样。
+
+最后注意，输出范围设置成了`0,w`，其中`w`是SVG的宽度。
+
+设置y轴上的尺度函数完全类似：
 {% highlight javascript %}
 var yScale = d3.scale.linear()
                      .domain([0, d3.max(dataset, function(d) { return d[1]; })])
                      .range([0, h]);
 {% endhighlight %}
 
+注意，`max()`函数访问的是`d[1]`，即每个子数组的y值。另外，`range()`的上限被设置成SVG的高度`h`。
+
+现在，尺度函数已经就绪。我们剩下的事情就是要去用它们了。简单修改`circle`属性设置的代码
+
 {% highlight javascript %}
 .attr("cx", function(d) {
     return d[0];
 })
 {% endhighlight %}
 
+为经过尺度函数缩放的版本:
 {% highlight javascript %}
 .attr("cx", function(d) {
     return xScale(d[0]);
 })
 {% endhighlight %}
 
+类似的，对于y轴，原来的代码
 {% highlight javascript %}
 .attr("cy", function(d) {
     return d[1];
 })
 {% endhighlight %}
-
+被修改为
 {% highlight javascript %}
 .attr("cy", function(d) {
     return yScale(d[1]);
 })
 {% endhighlight %}
 
+同时，我们也必须修改标签的位置，将代码
 {% highlight javascript %}
 .attr("x", function(d) {
     return d[0];
@@ -172,7 +195,7 @@ var yScale = d3.scale.linear()
 })
 {% endhighlight %}
 
-变成
+修改成
 
 {% highlight javascript %}
 .attr("x", function(d) {
@@ -182,7 +205,9 @@ var yScale = d3.scale.linear()
     return yScale(d[1]);
 })
 {% endhighlight %}
+[结果](htmls/150-scales-1.html)如下。表面上，这看起来和原版没什么区别。但是显然，我们在高技术上走得更远了。
 ![](images/150-scales-1.png)
+
 
 ## 改善散点图
 {% highlight javascript %}
