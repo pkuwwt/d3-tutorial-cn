@@ -4,6 +4,8 @@ title: 坐标轴
 permalink: "axes.html"
 ---
 
+更新时间: 2012-12-30
+
 精通D3的尺度之后，我们得到了如下散点图。
 
 ![](images/160-axes-1.png)

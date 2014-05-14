@@ -4,6 +4,8 @@ title: 数据类型
 permalink: "types-of-data.html"
 ---
 
+更新时间: 2012-12-30
+
 D3对输入数据的处理极为灵活。这次的主题是JavaScript和D3中常用的数据结构。
 
 ## 变量
