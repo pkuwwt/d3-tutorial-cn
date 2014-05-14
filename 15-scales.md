@@ -6,6 +6,9 @@ permalink: "scales.html"
 
 更新时间: 2012-12-30
 
+---
+
+
 **注意**，原文中的scale既可以翻译成尺度，又包含缩放的意思。虽然在英文中是一个词，但不同的中文，需要选择不同的翻译。基本原则是，名词翻译成尺度，动作则翻译成缩放。
 
 "尺度是将输入域映射为输出范围的函数"，这是[Mike Bostock对D3尺度的定义](https://github.com/mbostock/d3/wiki/Quantitative-Scales)。

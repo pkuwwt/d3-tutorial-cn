@@ -6,6 +6,9 @@ permalink: "using-your-data.html"
 
 更新时间: 2012-12-30
 
+---
+
+
 一旦你加载了数据，并将其绑定到新生成的DOM元素上之后，你要如何用它呢？下面是上次示例中的代码。
 
 {% highlight javascript %}

@@ -6,6 +6,9 @@ permalink: "fundamentals.html"
 
 更新时间: 2012-12-30
 
+---
+
+
 使用D3前需要理解这些概念: HTML, DOM, CSS, JavaScript, SVG，还需要有必要的开发工具。
 
 ## HTML
