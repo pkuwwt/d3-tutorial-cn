@@ -289,7 +289,7 @@ var rScale = d3.scale.linear()
   * [sqrt](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-sqrt): 平方根尺度
   * [pow](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-pow): 幂次尺度(利于健身?)
   * [log](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-log): 对数尺度
-  * [quantize](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-quantize)`: 输出为离散值的线性尺度，用于将数据归类的情况
+  * [quantize](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-quantize): 输出为离散值的线性尺度，用于将数据归类的情况
   * [quantile](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-quantile): 类似于`quantize`，不同的是输入也是离散值
   * [ordinal](https://github.com/mbostock/d3/wiki/Ordinal-Scales): 有序尺度，输出为非数值的值(比如类别名称)。适合比较苹果和桔子哟。
 
