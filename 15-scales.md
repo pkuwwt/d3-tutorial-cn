@@ -210,63 +210,84 @@ var yScale = d3.scale.linear()
 
 
 ## 改善散点图
+你可能早就注意到了，小的y值趋于图表的顶部，大的y值趋于图表的底部。以前，我们需要使用简单的数学计算来将y坐标倒过来，但现在，通过尺度函数，实现这一点更为简便了。具体的做法仅仅是将`yScale`的参数颠倒一下，从
 {% highlight javascript %}
 .range([0, h]);
 {% endhighlight %}
-
+变成
 {% highlight javascript %}
 .range([h, 0]);
 {% endhighlight %}
+[结果](htmls/150-scales-2.html)如下。是的，现在小的输入被`yScale`映射到了更大的输出值，因此，也就将表示散点的那些`circle`和`text`上下颠倒过来了。是不是太简单了？
 ![](images/150-scales-2.png)
+
+但是，有些元素可能会被裁剪掉了。因此，需要引入一个`padding`变量：
 
 {% highlight javascript %}
 var padding = 20;
 {% endhighlight %}
 
+然后，在设置两个尺度函数时用上这个`padding`值。原来的`xScale`输入范围是`range([0,w])`，现在变成了
 {% highlight javascript %}
 .range([padding, w - padding]);
 {% endhighlight %}
+原来的`yScale`输入范围是`range([h,0])`，现在变成了
 
 {% highlight javascript %}
 .range([h - padding, padding]);
 {% endhighlight %}
+这种做法会在SVG的左端，右端，顶部及底部各留20个像元的空间。结果如下
 ![](images/150-scales-3.png)
 
+
+但是，最右边的标签文本仍然被裁掉一部分了。所以，我们可以将`xScale`右边的边距增加一倍。
 {% highlight javascript %}
 .range([padding, w - padding * 2]);
 {% endhighlight %}
 ![](images/150-scales-4.png)
 
+看起来是不是好多了！[这里](htmls/150-scales-3.html)是到目前为止的代码测试页面。但还有一件事需要考虑一下。之前，我们的`cirlce`半径是y值的平方根，我们同样也可以为其定制一个尺度函数。
 {% highlight javascript %}
 var rScale = d3.scale.linear()
                      .domain([0, d3.max(dataset, function(d) { return d[1]; })])
                      .range([2, 5]);
 {% endhighlight %}
-
+然后，设置半径的代码变成
 {% highlight javascript %}
 .attr("r", function(d) {
     return rScale(d[1]);
 });
 {% endhighlight %}
+这看起来不错，因为它保证了半径值始终位于2和5之间(几乎是这样，参考后面的`clamp()`函数)。所以值`0`(最小输入)对应的半径为`2`(或直径为4像元)，最大的输入值对应的半径为`5`(直径为10个像元)。
 ![](images/150-scales-5.png)
+
+[好了](htmls/150-scales-4.html)！摆脱了简单的坐标值，我们终于可以用尺度来设置图形属性了。
+
+最后，假设你还没有被强大的尺度函数搞晕，我还想在数据集中增加一个数据点`[600,150]`:
 ![](images/150-scales-6.png)
+
+[成功了！](htmls/150-scales-5.html) 注意，旧的点都保持了相互之间的相对位置，只不过都朝左边挤紧了一点，以躲避右边来的不速之客。
+
+现在，我还可以透露一件事：我们已经可以很容易地修改SVG的大小了，不管你怎么改，里面的内容都会相应地进行缩放。比如，将`h`从`100`变为`300`，结果变为
 ![](images/150-scales-7.png)
+
+大家再次欢呼鼓掌！[这里](htmls/150-scales-6.html)是最新的测试页面。我希望，看到上面的结果，你已经意识到：即使客户端决定将图形宽度由800修改为600，你也无需熬夜改代码了。是的，因为我(以及D3的这些内置函数)，你可以睡个大觉了。休息地好是一个竞争优势，苟宝贵，勿相忘呀。
 
 ## 其它方法
 `d3.scale.linear()`还有其它一些好用的方法，值得在这里提一下
 
-  * `nice()`
-  * `rangeRound()`
-  * `clamp()`
+  * `nice()`: 此函数告诉尺度函数将(`range()`函数指定)输入范围的边界映射至最近的"取整"的值上。D3的wiki中给出了一个例子，对于输入范围 [0.20147987687960267, 0.996679553296417]，它的输出将是[0.2,1]。注意，第1个数是0.2而不是0，因为2是第1个非零有效值。这个功能是很有用的，因为类似于0.20147987687960267是很难读的。
+  * `rangeRound()`: 用`rangeRound()`来替换`range()`，则尺度函数所有的输出将会映射至最近的"取整"值。如果你想让图形的坐标与像元精确对齐，以避免模糊边界导致的走样，则此功能很有用。
+  * `clamp()`: 一个线性尺度函数默认允许返回输出范围之外的值。比如，如果给定一个输入范围之外的输入值，尺度函数的返回值就会跑到输出范围之外。通过对尺度函数调用`.clamp(true)`，会强制所有的输出值都位于指定的输出范围之内。这表示，超过范围的输入值会被映射到输出范围的(最近的)端点上。
 
 ## 其它尺度
 除了`linear`尺度之外(前面的内容)，D3还内置了其它一些尺度：
 
-  * `identity`
-  * `sqrt`
-  * `pow`
-  * `log`
-  * `quantize`
-  * `quantile`
+  * `identity`: 1:1尺度，主要用于像素值
+  * `sqrt`: 平方根尺度
+  * `pow`: 幂次尺度(利于健身?)
+  * `log`: 对数尺度
+  * `quantize`: 输出为离散值的线性尺度，用于将数据归类的情况
+  * `quantile`: 有序尺度，输出为非数值的值(比如类别名称)。适合比较苹果和桔子哟。
   * `ordinal`
 
