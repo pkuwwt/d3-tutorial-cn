@@ -122,7 +122,9 @@ var xAxis = d3.svg.axis()
 
 你大概已经发现，虽然我们指定的是5个刻度，但是D3居然替你作主，私自改成了7个。这是因为，D3在为你断后，它发现只用5个刻度，输入范围划分处只是些意义不大的值，这里是0,150,300,450和600。D3眼里，`ticks()`只不过是一个建议，为了最整洁和最具可读性，它会毫不犹豫地推翻你的建议。这本例中，最终的间距是100，即使这样会使得刻度数稍微多或稍微少一些，也再所不惜。这实际上是一种非常绝妙地功能，可以提高你设计时的可扩展性；随着数据集的变化，输入范围会扩大或缩小(数字更大或更小)，D3可保证刻度标签始终是整洁和易读的。
 
-## 要不要Y轴?
+## Y轴
+是时候增加垂直的Y轴了。直接复制粘贴`xAxis`的代码，并稍作修改，将其添加到脚本中靠前的位置(将变量的声明置于醒目的位置是个好习惯)
+
 {% highlight javascript %}
 //Define Y axis
 var yAxis = d3.svg.axis()
@@ -130,6 +132,7 @@ var yAxis = d3.svg.axis()
                   .orient("left")
                   .ticks(5);
 {% endhighlight %}
+然后，在脚本靠近最后的位置加上
 {% highlight javascript %}
 //Create Y axis
 svg.append("g")
@@ -137,14 +140,25 @@ svg.append("g")
     .attr("transform", "translate(" + padding + ",0)")
     .call(yAxis);
 {% endhighlight %}
+
+注意，坐标轴标签会出现在坐标轴左边`left`，而`yAxis`的组`g`向右平移了`padding`个像元。
+
 ![](images/160-axes-6.png)
 
+终于有点像模像样了。但是`yAxis`的部分标签还是被裁掉了。为了在左边预留更多空间，我们将`padding`的值由20变成30。
 {% highlight javascript %}
 var padding = 30;
 {% endhighlight %}
+
+当然，你也可以为每个坐标轴指定不同的`padding`变量，比如`xPadding`和`yPadding`，这样会更灵活一些。
+
+这里是现在的[代码页面](htmls/160-axes-4.html)。下图为效果图。
+
 ![](images/160-axes-7.png)
 
-## 最后结果
+## 最后调整
+
+为了证明我们的新坐标是动态的和可扩展的，我们可以将静态的数据集变成随机数据集。
 {% highlight javascript %}
 //Dynamic, random dataset
 var dataset = [];
@@ -157,19 +171,37 @@ for (var i = 0; i < numDataPoints; i++) {
     dataset.push([newNumber1, newNumber2]);
 }
 {% endhighlight %}
+此代码初始化一个空数据，然后，循环50次，每次选择一对随机数，并将其添加到`dataset`数组中。 下面是效果图。
+
 ![](images/160-axes-8.png)
+
+尝试一下[代码页面](htmls/160-axes-5.html)。你每次重载页面，你会得到不同的数据值。观察坐标轴是如何适应新的数据集的，而刻度和标签相应地进行了调整。
+
+到了这一步，我们应该终于可以去掉那些丑陋的红色标签了，注释掉相应的代码即可。
+
 ![](images/160-axes-9.png)
 
-## 坐标轴刻度标签的格式化
+[这里](htmls/160-axes-6.html)是我们最终的散点图。
 
+## 刻度标签的格式化
+最后一件事，目前为止，我们一直在使用整数，它们比较容易显示地比较漂亮。但是数据通常更复杂一些，以小数居多，在这种情况下，你会希望能够控制坐标轴标签的格式化显示。通过`tickFormat()`，你可以指定数字的格式化方式。比如，你希望保留小数点后的3个数字，或将值表示为百分数，或两者兼具。
+
+为了实现这个目标，你需要先定义一个新的数字格式化函数。比如，下面的代码将值视为百分数，并保留小数点后1位数。(参考[`d3.format()`](https://github.com/mbostock/d3/wiki/Formatting#wiki-d3_format)的文档，了解更多选项)
 {% highlight javascript %}
 var formatAsPercentage = d3.format(".1%");
 {% endhighlight %}
+
+然后，告诉坐标轴去使用这个格式化函数来用于刻度标签的显示。比如
 
 {% highlight javascript %}
 xAxis.tickFormat(formatAsPercentage);
 {% endhighlight %}
 
+这里有个开发技巧。我发现在JavaScript终端中测试这些格式化函数很方便。比如，打开终端后，打开任何加载了D3的页面，比如我们[最终的散点图](htmls/160-axes-6.html)，然后，在终端中输入你的格式化规则。你得到一个函数，然后传给它一个值，并测试结果。
+
 ![](images/160-axes-10.png)
 
+你可以发现，数据值`0.54321`被转化成了用于显示目的的`54.3%`。棒极了！
+
+在这个[代码示例](htmls/160-axes-7.html)中，百分号在目前这个散点图中并没有多少意义，但作为一个练习，你可以尝试理解随机数是如何生成的，这些随机数都是非整数，因此，你还可以针对格式化做一些实验。
 
