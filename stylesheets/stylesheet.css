@@ -23,7 +23,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-div,p {
+div,p,img {
 	vertical-align: top;
 }
 /* HTML5 display-role reset for older browsers */
