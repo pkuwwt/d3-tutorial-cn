@@ -182,7 +182,7 @@ var yScale = d3.scale.linear()
     return yScale(d[1]);
 })
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/1.png)
+![](images/150-scales-1.png)
 
 ## 改善散点图
 {% highlight javascript %}
@@ -192,7 +192,7 @@ var yScale = d3.scale.linear()
 {% highlight javascript %}
 .range([h, 0]);
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/2.png)
+![](images/150-scales-2.png)
 
 {% highlight javascript %}
 var padding = 20;
@@ -205,12 +205,12 @@ var padding = 20;
 {% highlight javascript %}
 .range([h - padding, padding]);
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/3.png)
+![](images/150-scales-3.png)
 
 {% highlight javascript %}
 .range([padding, w - padding * 2]);
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/4.png)
+![](images/150-scales-4.png)
 
 {% highlight javascript %}
 var rScale = d3.scale.linear()
@@ -223,9 +223,9 @@ var rScale = d3.scale.linear()
     return rScale(d[1]);
 });
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/5.png)
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/6.png)
-![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/7.png)
+![](images/150-scales-5.png)
+![](images/150-scales-6.png)
+![](images/150-scales-7.png)
 
 ## 其它方法
 `d3.scale.linear()`还有其它一些好用的方法，值得在这里提一下

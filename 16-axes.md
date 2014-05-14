@@ -4,7 +4,7 @@ title: 坐标轴
 permalink: "axes.html"
 ---
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/1.png)
+![](images/160-axes-1.png)
 ## 坐标轴介绍
 ## 设置坐标轴
 {% highlight javascript %}
@@ -31,7 +31,7 @@ svg.append("g")
                 .scale(xScale)
                 .orient("bottom"));
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/2.png)
+![](images/160-axes-2.png)
 ## 清理
 {% highlight javascript %}
 svg.append("g")
@@ -51,7 +51,7 @@ svg.append("g")
     font-size: 11px;
 }
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/3.png)
+![](images/160-axes-3.png)
 
 {% highlight javascript %}
 svg.append("g")
@@ -59,7 +59,7 @@ svg.append("g")
     .attr("transform", "translate(0," + (h - padding) + ")")
     .call(xAxis);
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/4.png)
+![](images/160-axes-4.png)
 
 ## 检查坐标轴刻度标记
 {% highlight javascript %}
@@ -68,7 +68,7 @@ var xAxis = d3.svg.axis()
                   .orient("bottom")
                   .ticks(5);  //Set rough # of ticks
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/5.png)
+![](images/160-axes-5.png)
 
 ## 要不要Y轴?
 {% highlight javascript %}
@@ -85,12 +85,12 @@ svg.append("g")
     .attr("transform", "translate(" + padding + ",0)")
     .call(yAxis);
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/6.png)
+![](images/160-axes-6.png)
 
 {% highlight javascript %}
 var padding = 30;
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/7.png)
+![](images/160-axes-7.png)
 
 ## 最后结果
 {% highlight javascript %}
@@ -105,8 +105,8 @@ for (var i = 0; i < numDataPoints; i++) {
     dataset.push([newNumber1, newNumber2]);
 }
 {% endhighlight %}
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/8.png)
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/9.png)
+![](images/160-axes-8.png)
+![](images/160-axes-9.png)
 
 ## 坐标轴刻度标签的格式化
 
@@ -118,6 +118,6 @@ var formatAsPercentage = d3.format(".1%");
 xAxis.tickFormat(formatAsPercentage);
 {% endhighlight %}
 
-![](http://alignedleft.com/content/03-tutorials/01-d3/160-axes/10.png)
+![](images/160-axes-10.png)
 
 
