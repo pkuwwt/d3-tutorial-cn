@@ -5,7 +5,9 @@ permalink: "axes.html"
 ---
 
 ![](images/160-axes-1.png)
+
 ## 坐标轴介绍
+
 ## 设置坐标轴
 {% highlight javascript %}
 var xAxis = d3.svg.axis();
