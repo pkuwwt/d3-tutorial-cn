@@ -64,7 +64,7 @@ p {
 }
 {% endhighlight %}
 
-D3使用CSS-样式选择器来定位需要操作的那些元素，因此理解CSS的使用是很重要的。
+D3使用CSS-样式选择器来定位需要操作的那些元素，因此理解CSS的使用很重要。
 
 CSS的规则可以直接放在网页的`head`中，如
 
@@ -87,7 +87,7 @@ CSS的规则可以直接放在网页的`head`中，如
 {% endhighlight %}
 
 ## JavaScript
-JavaScript是一种动态脚本语言，它可以向浏览器发送命令，从而在网页加载之后再去修改网页内容。
+JavaScript是一种动态脚本语言，它可以向浏览器发送命令，在网页加载完成之后再去修改网页内容。
 
 脚本可以直接放在HTML中的两个`script`标签之间。
 {% highlight html %}
@@ -108,7 +108,7 @@ JavaScript是一种动态脚本语言，它可以向浏览器发送命令，从�
 {% endhighlight %}
 
 ## 开发工具
-熟悉浏览器的开发工具很重要。在一个基于WebKit的浏览器中(比如Safari或Chrome)，你可以打开"web inspector"，界面如下(Chrome中快捷键是Ctrl+Shift+I，也可以在Tools菜单中找到)
+熟悉浏览器的开发工具很重要。在一个基于WebKit的浏览器中(比如Safari或Chrome)，你可以打开"web inspector"，界面如下(Chrome中快捷键是Ctrl+Shift+I，也可以在Tools菜单中找到)。Firefox也有类似的工具。
 
 ![](images/20-fundamentals-web_inspector.png)
 
