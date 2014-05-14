@@ -278,18 +278,18 @@ var rScale = d3.scale.linear()
 ## 其它方法
 `d3.scale.linear()`还有其它一些好用的方法，值得在这里提一下
 
-  * `nice()`: 此函数告诉尺度函数将(`range()`函数指定)输入范围的边界映射至最近的"取整"的值上。D3的wiki中给出了一个例子，对于输入范围 [0.20147987687960267, 0.996679553296417]，它的输出将是[0.2,1]。注意，第1个数是0.2而不是0，因为2是第1个非零有效值。这个功能是很有用的，因为类似于0.20147987687960267是很难读的。
-  * `rangeRound()`: 用`rangeRound()`来替换`range()`，则尺度函数所有的输出将会映射至最近的"取整"值。如果你想让图形的坐标与像元精确对齐，以避免模糊边界导致的走样，则此功能很有用。
-  * `clamp()`: 一个线性尺度函数默认允许返回输出范围之外的值。比如，如果给定一个输入范围之外的输入值，尺度函数的返回值就会跑到输出范围之外。通过对尺度函数调用`.clamp(true)`，会强制所有的输出值都位于指定的输出范围之内。这表示，超过范围的输入值会被映射到输出范围的(最近的)端点上。
+  * `[nice()](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-linear_nice)`: 此函数告诉尺度函数将(`range()`函数指定)输入范围的边界映射至最近的"取整"的值上。D3的wiki中给出了一个例子，对于输入范围 [0.20147987687960267, 0.996679553296417]，它的输出将是[0.2,1]。注意，第1个数是0.2而不是0，因为2是第1个非零有效值。这个功能是很有用的，因为类似于0.20147987687960267是很难读的。
+  * `[rangeRound()](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-linear_rangeRound)`: 用`rangeRound()`来替换`range()`，则尺度函数所有的输出将会映射至最近的"取整"值。如果你想让图形的坐标与像元精确对齐，以避免模糊边界导致的走样，则此功能很有用。
+  * `[clamp()](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-linear_clamp)`: 一个线性尺度函数默认允许返回输出范围之外的值。比如，如果给定一个输入范围之外的输入值，尺度函数的返回值就会跑到输出范围之外。通过对尺度函数调用`.clamp(true)`，会强制所有的输出值都位于指定的输出范围之内。这表示，超过范围的输入值会被映射到输出范围的(最近的)端点上。
 
 ## 其它尺度
 除了`linear`尺度之外(前面的内容)，D3还内置了其它一些尺度：
 
-  * `identity`: 1:1尺度，主要用于像素值
-  * `sqrt`: 平方根尺度
-  * `pow`: 幂次尺度(利于健身?)
-  * `log`: 对数尺度
-  * `quantize`: 输出为离散值的线性尺度，用于将数据归类的情况
-  * `quantile`: 有序尺度，输出为非数值的值(比如类别名称)。适合比较苹果和桔子哟。
-  * `ordinal`
+  * `[identity](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-identity)`: 1:1尺度，主要用于像素值
+  * `[sqrt](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-sqrt)`: 平方根尺度
+  * `[pow](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-pow)`: 幂次尺度(利于健身?)
+  * `[log](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-log)`: 对数尺度
+  * `[quantize](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-quantize)`: 输出为离散值的线性尺度，用于将数据归类的情况
+  * `[quantile](https://github.com/mbostock/d3/wiki/Quantitative-Scales#wiki-quantile)`: 类似于`quantize`，不同的是输入也是离散值
+  * `[ordinal](https://github.com/mbostock/d3/wiki/Ordinal-Scales)`: 有序尺度，输出为非数值的值(比如类别名称)。适合比较苹果和桔子哟。
 
