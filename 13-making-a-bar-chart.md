@@ -194,7 +194,7 @@ var barPadding = 1;  // <-- New!
 
 ![](images/130-making-a-bar-chart-14.png)
 
-[这里](htmls/130-making-a-bar-chart-7.html)全青色的柱状图测试页面。但是，你一般会要求形态的颜色反映了数据的质量。即，将数据编码为颜色。在我们的例子中，数据被双重编码了，因为高度和颜色都用到了数据值。
+[这里](htmls/130-making-a-bar-chart-7.html)是全青色的柱状图测试页面。但是，你一般会要求形状的颜色反映了数据的某种性质。即，将数据编码为颜色。在我们的例子中，数据被双重编码了，因为高度和颜色都用到了数据值。
 
 用数据设计颜色同样只需要定制一个函数，函数中用`d`引用数据值。这里，我们将`"teal"`替换成一个定制的函数。
 
@@ -233,7 +233,7 @@ svg.selectAll("text")
 .attr("x", function(d, i) {
         return i * (w / dataset.length);
    })
-   .attr("y", function(d) {
+.attr("y", function(d) {
         return h - (d * 4);
    });
 {% endhighlight %}
@@ -267,15 +267,15 @@ svg.selectAll("text")
 
 然后，我们要相应地修改`x`的计算方式，令其等于柱子左边界加上半个柱子宽度。
 {% highlight javascript %}
- .attr("x", function(d, i) {
-        return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+.attr("x", function(d, i) {
+    return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
     })
 {% endhighlight %}
 另外，再将标签向上移一个像元，让与顶端的间隔更完美。
 
 {% highlight javascript %}
- .attr("y", function(d) {
-        return h - (d * 4) + 14;  //15 is now 14
+.attr("y", function(d) {
+    return h - (d * 4) + 14;  //15 is now 14
     })
 {% endhighlight %}
 
