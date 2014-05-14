@@ -162,13 +162,13 @@ SVG的默认样式是黑色填充而不画线。如果你想修改样式，你�
  fill="yellow" stroke="orange" stroke-width="5"/>
 </svg>
 
-当然，我们可以不直接用这些样式属性，而是为`circle`指定一个样式类别(就像为HTML元素指定类别一样)。
+当然，我们可以不直接用这些样式属性，而是为`circle`指定一个样式类(就像为HTML元素指定类一样)。
 
 {% highlight javascript %}
 <circle cx="25" cy="25" r="22" class="pumpkin"/>
 {% endhighlight %}
 
-然后，把`fill`，`stroke`和`stroke-width`这些规则放到一个CSS样式中，这样就构成了一个新类别。
+然后，把`fill`，`stroke`和`stroke-width`这些规则放到一个CSS样式中，这样就构成了一个新类。
 
 {% highlight css %}
 .pumpkin {
