@@ -9,7 +9,7 @@ permalink: "using-your-data.html"
 ------
 
 
-一旦你加载了数据，并将其绑定到新生成的DOM元素上之后，你要如何用它呢？下面是上次示例中的代码。
+一旦加载了数据，并将其绑定到新生成的DOM元素上之后，你要如何用它呢？下面是上次示例中的代码。
 
 {% highlight javascript %}
 var dataset = [ 5, 10, 15, 20, 25 ];
