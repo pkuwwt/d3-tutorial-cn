@@ -158,6 +158,7 @@ var barPadding = 1;  // <-- New!
 .attr("height", function(d) {
     return d * 4;  // <-- Times four!
 });
+{% endhighlight %}
 
 ![](images/130-making-a-bar-chart-11.png)
 
