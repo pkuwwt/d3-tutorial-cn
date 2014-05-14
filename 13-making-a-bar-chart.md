@@ -15,7 +15,7 @@ permalink: "making-a-bar-chart.html"
 
 
 ## 原来的柱状图
-[这里](htmls/130-making-a-bar-chart-1.html)上次画的柱状图，只不过用了新的数据。
+[这里](htmls/130-making-a-bar-chart-1.html)是上次画的柱状图，只不过用了新的数据。
 
 {% highlight javascript %}
 var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
@@ -34,7 +34,7 @@ d3.select("body").selectAll("div")
 
 ![](images/130-making-a-bar-chart-1.png)
 
-虽然，暂时还想象不出来，但是这个基于`div`柱状图肯定能变得更好。
+虽然，暂时还想象不出来，但是经过我们进一步改造，这个基于`div`柱状图只会变得更好。
 
 
 ## 新的柱状图
@@ -46,7 +46,7 @@ var h = 100;
 {% endhighlight %}
 (当然，名字`w`和`h`是任取的，其它名字比如`svgWidth`和`svgHeight`也不错。写代码时，怎么清晰怎么来。JavaScript有尽量提高效率的传统，所以你经常会看到单字符的变量名，代码之间的空格也很少，这种语法在加载效率上肯定更高，但是确实难读。)
 
-	然后，我们告诉D3生成一个空的SVG元素，并加到DOM中去：
+然后，我们告诉D3生成一个空的SVG元素，并加到DOM中去：
 
 {% highlight javascript %}
 //Create SVG element
@@ -74,7 +74,7 @@ svg.selectAll("rect")
 
 然后，`data(dataset)`发现数据集中的20个值，所以接着调用`enter()`20次。而`enter()`反过来为每个数据点返回一个占位选择，每个占位选择对应一个`rect`，当然，`rect`仍然是不存在的。
 
-对于这20个占位元素，`append("rect")`在相应的位置上插入一个`rect`元素。我们在前面的SVG初步中已经了解到，每个`rect`必须有`x`,`y`,`width`和`height`属性。所以，我们使用`attr()`来为每个新生成的`rect`添加这些属性。
+对于这20个占位元素，`append("rect")`在相应的位置上插入一个`rect`元素。我们在前面的[SVG初步](the-svg-primer.html)中已经了解到，每个`rect`必须有`x`,`y`,`width`和`height`属性。所以，我们使用`attr()`来为每个新生成的`rect`添加这些属性。
 
 [结果](htmls/130-making-a-bar-chart-2.html)漂亮否？当然很丑啦！
 
@@ -109,9 +109,11 @@ svg.selectAll("rect")
 {% endhighlight %}
 
 注意，`x`的值是如何与SVG宽度(`w`)和数据点个数(`dataset.length`)发生关系的。现在，我们可以高兴地看到我们的柱状图是均匀分布的。如果有20个数据点，效果为
+
 ![](images/130-making-a-bar-chart-5.png)
 
 5个数据点的效果则为
+
 ![](images/130-making-a-bar-chart-6.png)
 
 这里是我们目前的代码的[测试页面](htmls/130-making-a-bar-chart-4.html)。
@@ -138,6 +140,7 @@ var barPadding = 1;  // <-- New!
 ![](images/130-making-a-bar-chart-8.png)
 
 100个数据点的结果也符合预期。
+
 ![](images/130-making-a-bar-chart-9.png)
 
 最后，用数据值来设置每个柱子的`height`值。最简单的方法就是直接用数据值`d`来设置`height`
@@ -145,19 +148,22 @@ var barPadding = 1;  // <-- New!
 .attr("height", function(d) {
     return d;
 });
+{% endhighlight %}
+
 ![](images/130-making-a-bar-chart-10.png)
 
 看起来有些矮。我们可以放大一些。
 
-{% endhighlight %}
+{% highlight javascript %}
 .attr("height", function(d) {
     return d * 4;  // <-- Times four!
 });
+
 ![](images/130-making-a-bar-chart-11.png)
 
 唉，不容易啊。可是如果想要让柱子朝上增长而不是现在的朝下，怎么办？这不要怪D3，要怪就怪SVG。
 
-回忆一下SVG初步的内容，当我们画`rect`时，`x`和`y`的值采用的坐标系的原点在左上角。了解了这一点，将坐标系原点变成左下角就很容易了。但这件事还得你自己做，SVG完全不会顾及你的感受。
+回忆一下[SVG初步](the-svg-primer.html)的内容，当我们画`rect`时，`x`和`y`的值采用的坐标系的原点在左上角。了解了这一点，将坐标系原点变成左下角就很容易了。但这件事还得你自己做，SVG完全不会顾及你的感受。
 
 如果要求柱子从顶端往下生长，那么柱子的顶端和SVG的顶端有什么关系呢？关系很简单，柱子的顶端可以表示为SVG高度和数据值的差。
 
@@ -203,7 +209,7 @@ var barPadding = 1;  // <-- New!
 ## 标签
 图形很炫，但是有时候，你需要在可视化中用文本显示真实地数值。因此我们需要用到标签，而用D3生成标签是非常非常容易的。
 
-回忆一下SVG初步中在SVG元素中添加`text`元素的方式。代码如下
+回忆一下[SVG初步](the-svg-primer.html)中在SVG元素中添加`text`元素的方式。代码如下
 {% highlight javascript %}
 svg.selectAll("text")
    .data(dataset)
