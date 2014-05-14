@@ -66,9 +66,9 @@ var h = 50;
 
 {% highlight javascript %}
 var svg = d3.select("body")
-.append("svg")
-.attr("width", w)   // <-- Here
-.attr("height", h); // <-- and here!
+            .append("svg")
+            .attr("width", w)   // <-- Here
+            .attr("height", h); // <-- and here!
 {% endhighlight %}
 
 用变量存储常用数值，是编程的惯用做法。如果你向上苍请愿将整个世界变量化，我会非常乐意签上我的名字的。
@@ -85,8 +85,8 @@ var dataset = [ 5, 10, 15, 20, 25 ];
 {% highlight javascript %}
 svg.selectAll("circle")
     .data(dataset)
-	.enter()
-	.append("circle");
+    .enter()
+    .append("circle");
 {% endhighlight %}
 
 再次强调，`selectAll()`返回的是所有圆的空引用(这些圆此时并不存在)，`data()`将我们的数据绑定到我们将要创建的元素上，而`enter()`返回的是新元素的占位元素的引用，最后，`append()`添加一个`circle`到DOM中。
@@ -95,20 +95,20 @@ svg.selectAll("circle")
 {% highlight javascript %}
 var circles = svg.selectAll("circle")
                  .data(dataset)
-	             .enter()
-	             .append("circle");
+                 .enter()
+                 .append("circle");
 {% endhighlight %}
 
 圆倒是生成了，但它需要设置其位置和大小。下面的代码才是真正出奇迹的地方，
 
 {% highlight javascript %}
 circles.attr("cx", function(d, i) {
-		return (i * 50) + 25;
-	})
-	.attr("cy", h/2)
-	.attr("r", function(d) {
-			return d;
-	});
+        return (i * 50) + 25;
+    })
+    .attr("cy", h/2)
+    .attr("r", function(d) {
+        return d;
+    });
 {% endhighlight %}
 ![](images/110-drawing-svgs-1.png)
 
@@ -116,7 +116,7 @@ circles.attr("cx", function(d, i) {
 
 {% highlight javascript %}
 circles.attr("cx", function(d, i) {
-		return (i * 50) + 25;
+    return (i * 50) + 25;
 })
 {% endhighlight %}
 
@@ -142,7 +142,7 @@ circles.attr("cx", function(d, i) {
 
 {% highlight javascript %}
 .attr("r", function(d) {
-		return d;
+    return d;
 });
 {% endhighlight %}
 
@@ -155,11 +155,12 @@ circles.attr("cx", function(d, i) {
 .attr("fill", "yellow")
 .attr("stroke", "orange")
 .attr("stroke-width", function(d) {
-		return d/2;
+    return d/2;
 });
 {% endhighlight %}
 
 于是，我们得到下面的图像([测试页面](htmls/110-drawing-svgs-4.html))
+
 ![](images/110-drawing-svgs-2.png)
 
 当然，你可以混合和组合各种属性，并定制各种各样的函数来设置属性。数据可视化的技巧本来就在于选择合适的映射，以便让你的数据的视觉表现派上用场，并被用户所理解。
