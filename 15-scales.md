@@ -112,60 +112,136 @@ scale(500);  //Returns 350
 一般，你会在`attr()`方法中调用尺度函数，或者单独调用尺度函数。下面，我们将用动态尺度函数来修改我们的散点图可视化。
 
 ## 缩放散点图
+先回顾一下之前的散点数据集
+
 {% highlight javascript %}
+var dataset = [
+                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+              ];
 {% endhighlight %}
 
 {% highlight javascript %}
+d3.max(dataset, function(d) {    //Returns 480
+    return d[0];  //References first value in each sub-array
+});
 {% endhighlight %}
 
 {% highlight javascript %}
+var xScale = d3.scale.linear()
+                     .domain([0, d3.max(dataset, function(d) { return d[0]; })])
+                     .range([0, w]);
 {% endhighlight %}
 
 {% highlight javascript %}
+var yScale = d3.scale.linear()
+                     .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+                     .range([0, h]);
 {% endhighlight %}
 
 {% highlight javascript %}
+.attr("cx", function(d) {
+    return d[0];
+})
 {% endhighlight %}
 
 {% highlight javascript %}
+.attr("cx", function(d) {
+    return xScale(d[0]);
+})
 {% endhighlight %}
 
 {% highlight javascript %}
+.attr("cy", function(d) {
+    return d[1];
+})
 {% endhighlight %}
 
 {% highlight javascript %}
+.attr("cy", function(d) {
+    return yScale(d[1]);
+})
 {% endhighlight %}
 
 {% highlight javascript %}
+.attr("x", function(d) {
+    return d[0];
+})
+.attr("y", function(d) {
+    return d[1];
+})
 {% endhighlight %}
 
-{% highlight javascript %}
-{% endhighlight %}
+变成
 
 {% highlight javascript %}
+.attr("x", function(d) {
+    return xScale(d[0]);
+})
+.attr("y", function(d) {
+    return yScale(d[1]);
+})
 {% endhighlight %}
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/1.png)
 
-{% highlight javascript %}
-{% endhighlight %}
-
-{% highlight javascript %}
-{% endhighlight %}
-
-{% highlight javascript %}
-{% endhighlight %}
-
-{% highlight javascript %}
-{% endhighlight %}
-
-{% highlight javascript %}
-{% endhighlight %}
-
-{% highlight javascript %}
-{% endhighlight %}
-
-{% highlight javascript %}
-{% endhighlight %}
 ## 改善散点图
+{% highlight javascript %}
+.range([0, h]);
+{% endhighlight %}
+
+{% highlight javascript %}
+.range([h, 0]);
+{% endhighlight %}
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/2.png)
+
+{% highlight javascript %}
+var padding = 20;
+{% endhighlight %}
+
+{% highlight javascript %}
+.range([padding, w - padding]);
+{% endhighlight %}
+
+{% highlight javascript %}
+.range([h - padding, padding]);
+{% endhighlight %}
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/3.png)
+
+{% highlight javascript %}
+.range([padding, w - padding * 2]);
+{% endhighlight %}
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/4.png)
+
+{% highlight javascript %}
+var rScale = d3.scale.linear()
+                     .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+                     .range([2, 5]);
+{% endhighlight %}
+
+{% highlight javascript %}
+.attr("r", function(d) {
+    return rScale(d[1]);
+});
+{% endhighlight %}
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/5.png)
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/6.png)
+![](http://alignedleft.com/content/03-tutorials/01-d3/150-scales/7.png)
+
 ## 其它方法
-## 其它比例
+`d3.scale.linear()`还有其它一些好用的方法，值得在这里提一下
+
+  * `nice()`
+  * `rangeRound()`
+  * `clamp()`
+
+## 其它尺度
+除了`linear`尺度之外(前面的内容)，D3还内置了其它一些尺度：
+
+  * `identity`
+  * `sqrt`
+  * `pow`
+  * `log`
+  * `quantize`
+  * `quantile`
+  * `ordinal`
 
