@@ -206,6 +206,7 @@ var yScale = d3.scale.linear()
 })
 {% endhighlight %}
 [结果](htmls/150-scales-1.html)如下。表面上，这看起来和原版没什么区别。但是显然，我们在高技术上走得更远了。
+
 ![](images/150-scales-1.png)
 
 
