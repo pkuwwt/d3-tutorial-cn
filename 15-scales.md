@@ -102,8 +102,8 @@ scale.range([10,350]);
 
 {% highlight javascript %}
 var scale = d3.scale.linear()
-.domain([100, 500])
-.range([10, 350]);
+              .domain([100, 500])
+              .range([10, 350]);
 {% endhighlight %}
 
 不管你用哪种方式，反正都会得到一个可用的尺度。
@@ -143,8 +143,8 @@ d3.max(dataset, function(d) {    //Returns 480
 结合上述代码，我们在x轴上的尺度函数变成了
 {% highlight javascript %}
 var xScale = d3.scale.linear()
-                     .domain([0, d3.max(dataset, function(d) { return d[0]; })])
-                     .range([0, w]);
+               .domain([0, d3.max(dataset, function(d) { return d[0]; })])
+               .range([0, w]);
 {% endhighlight %}
 
 首先，要注意的是，我取了个`xScale`的名字，当然，你也可以取任意其它名字。但类似于`xScale`这样的变量名有助于记住其功能。
@@ -156,8 +156,8 @@ var xScale = d3.scale.linear()
 设置y轴上的尺度函数完全类似：
 {% highlight javascript %}
 var yScale = d3.scale.linear()
-                     .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-                     .range([0, h]);
+               .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+               .range([0, h]);
 {% endhighlight %}
 
 注意，`max()`函数访问的是`d[1]`，即每个子数组的y值。另外，`range()`的上限被设置成SVG的高度`h`。
@@ -210,7 +210,7 @@ var yScale = d3.scale.linear()
     return yScale(d[1]);
 })
 {% endhighlight %}
-[结果](htmls/150-scales-1.html)如下。表面上，这看起来和原版没什么区别。但是显然，我们在高技术上走得更远了。
+[结果](htmls/150-scales-1.html)如下。表面上，这看起来和原版没什么区别。但是显然，我们在高级技术上走得更远了。
 
 ![](images/150-scales-1.png)
 
@@ -255,8 +255,8 @@ var padding = 20;
 看起来是不是好多了！[这里](htmls/150-scales-3.html)是到目前为止的代码测试页面。但还有一件事需要考虑一下。之前，我们的`cirlce`半径是y值的平方根，我们同样也可以为其定制一个尺度函数。
 {% highlight javascript %}
 var rScale = d3.scale.linear()
-                     .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-                     .range([2, 5]);
+               .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+               .range([2, 5]);
 {% endhighlight %}
 然后，设置半径的代码变成
 {% highlight javascript %}
