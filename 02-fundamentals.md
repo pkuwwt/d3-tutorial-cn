@@ -6,7 +6,7 @@ permalink: "fundamentals.html"
 
 更新时间: 2012-12-30
 
-使用D3需要理解以下概念。
+使用D3前需要理解这些概念: HTML, DOM, CSS, JavaScript, SVG，还需要有必要的开发工具。
 
 ## HTML
 HTML(超文本标记语言, HyperText Markup Language)用于结构化网页内容。最简单的HTML页面如下
