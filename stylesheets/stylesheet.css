@@ -24,7 +24,7 @@ time, mark, audio, video {
 }
 
 div {
-	display: inline-block;
+	//display: inline-block;
 	vertical-align: top;
 }
 /* HTML5 display-role reset for older browsers */
