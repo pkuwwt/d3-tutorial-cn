@@ -48,3 +48,6 @@ D3使用了高级JavaScript技术，所以学习D3意味着需要较多的JavaSc
 ## 免责声明
 为了让教程更易于理解，我可以会模糊掉一些技术细节，特别是一些重要的基本概念可能会被简化处理。这会让一些真正的软件工程师们恼火不已，不过没关系，本教程本来就是面向艺术家和设计师的，工程师可以回避。
 
+## 关于译文
+翻译使用的是github的jekyll网页发布工具，[源码](https://github.com/pkuwwt/d3-tutorial-cn)格式是Markdown。如果有任何问题，可以在[issue](https://github.com/pkuwwt/d3-tutorial-cn/issues)页面提交问题。
+
