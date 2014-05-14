@@ -6,7 +6,7 @@ permalink: "the-power-of-data.html"
 
 更新时间: 2012-12-30
 
----
+------
 
 
 我们考虑一个简单的[柱状图](htmls/90-the-power-of-data-1.html)上，它是用`div`画的，并基于如下简单数据集。
