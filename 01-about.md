@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 关于此教程
-permalink: "index.html"
+permalink: "about.html"
 ---
 
 更新时间: 2012-12-30
