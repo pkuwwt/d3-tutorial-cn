@@ -1,12 +1,17 @@
 <html>
 <head>
+<script type="text/javascript">
+var target_url = "http://pkuwwt.github.com/d3-tutorial-cn/about.html";
+var backup_url = "http://pkuwwt.gitcafe.com/d3-tutorial-cn/about.html";
+if(document.URL.indexOf("gitcafe")>-1) {
+	window.location.replace(backup_url);
+}
+</script>
 <script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
 <script type="text/javascript" src="javascripts/jquery-1.10.1.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
-var target_url = "http://pkuwwt.github.com/d3-tutorial-cn/about.html";
-var backup_url = "http://pkuwwt.gitcafe.com/d3-tutorial-cn/about.html";
 
 // get IP failed
 if(typeof myip == 'undefined') {
