@@ -49,6 +49,6 @@ permalink: "setup.html"
 如果你了解python，则最简单的网页服务器莫过于在`index.html`所在目录执行
 
 {% highlight python %}
-python SimpleHTTPServer 8888
+python SimpleHTTPServer -m 8888
 {% endhighlight %}
 
