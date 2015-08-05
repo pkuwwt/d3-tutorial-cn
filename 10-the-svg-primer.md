@@ -291,6 +291,7 @@ SVG中没有"层"和深度的概念。SVG也不支持CSS的`z-index`属性。所
 
 你也可以在使用`rgba()`的同时再设置元素的`opacity`。这时，不透明度会相乘。下面例子中的圆对于`fill`和`stroke`使用同样的RGBA值，第一个圆没有设置`opacity`，而后两个设置了。
 
+{% highlight html %}
 <circle cx="25" cy="25" r="20"
         fill="rgba(128, 0, 128, 0.75)" 
         stroke="rgba(0, 255, 0, 0.25)" stroke-width="10"/>
@@ -302,6 +303,7 @@ SVG中没有"层"和深度的概念。SVG也不支持CSS的`z-index`属性。所
         fill="rgba(128, 0, 128, 0.75)" 
         stroke="rgba(0, 255, 0, 0.25)" stroke-width="10"
         opacity="0.2"/>
+{% endhighlight %}
 
 <svg width="500" height="50">
 <circle cx="25" cy="25" r="20"
