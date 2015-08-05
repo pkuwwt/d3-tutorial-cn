@@ -246,19 +246,27 @@ SVG中没有"层"和深度的概念。SVG也不支持CSS的`z-index`属性。所
 注意，在用`rgba()`时，`fill`和`stroke`的不透明度是独立的。下面这个例子中，圆在填充时`fill`的不透明度是75%，而`stroke`的不透明度是25%。
 
 {% highlight html %}
-<circle cx="25" cy="25" r="20" fill="rgba(128, 0, 128, 1.0)"/>
-<circle cx="50" cy="25" r="20" fill="rgba(0, 0, 255, 0.75)"/>
-<circle cx="75" cy="25" r="20" fill="rgba(0, 255, 0, 0.5)"/>
-<circle cx="100" cy="25" r="20" fill="rgba(255, 255, 0, 0.25)"/>
-<circle cx="125" cy="25" r="20" fill="rgba(255, 0, 0, 0.1)"/>
+<circle cx="25" cy="25" r="20"
+        fill="rgba(128, 0, 128, 0.75)" 
+        stroke="rgba(0, 255, 0, 0.25)" stroke-width="10"/>
+<circle cx="75" cy="25" r="20"
+        fill="rgba(0, 255, 0, 0.75)"
+        stroke="rgba(0, 0, 255, 0.25)" stroke-width="10"/>
+<circle cx="125" cy="25" r="20"
+        fill="rgba(255, 255, 0, 0.75)"
+        stroke="rgba(255, 0, 0, 0.25)" stroke-width="10"/>
 {% endhighlight %}
 
 <svg width="500" height="50">
-<circle cx="25" cy="25" r="20" fill="rgba(128, 0, 128, 1.0)"/>
-<circle cx="50" cy="25" r="20" fill="rgba(0, 0, 255, 0.75)"/>
-<circle cx="75" cy="25" r="20" fill="rgba(0, 255, 0, 0.5)"/>
-<circle cx="100" cy="25" r="20" fill="rgba(255, 255, 0, 0.25)"/>
-<circle cx="125" cy="25" r="20" fill="rgba(255, 0, 0, 0.1)"/>
+<circle cx="25" cy="25" r="20"
+        fill="rgba(128, 0, 128, 0.75)" 
+        stroke="rgba(0, 255, 0, 0.25)" stroke-width="10"/>
+<circle cx="75" cy="25" r="20"
+        fill="rgba(0, 255, 0, 0.75)"
+        stroke="rgba(0, 0, 255, 0.25)" stroke-width="10"/>
+<circle cx="125" cy="25" r="20"
+        fill="rgba(255, 255, 0, 0.75)"
+        stroke="rgba(255, 0, 0, 0.25)" stroke-width="10"/>
 </svg>
 
 如果要为整个元素设置不透明度，可以使用`opacity`属性。下面的例子是完全不透明的圆。
