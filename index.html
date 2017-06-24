@@ -2,52 +2,10 @@
 <head>
 <script type="text/javascript">
 var target_url = "http://pkuwwt.github.io/d3-tutorial-cn/about.html";
-var backup_url = "http://pkuwwt.github.io/d3-tutorial-cn/about.html";
-if(document.URL.indexOf("gitcafe")>-1) {
-	window.location.replace(backup_url);
-}
-</script>
-<script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
-<script type="text/javascript" src="javascripts/jquery-1.10.1.min.js"></script>
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F32c000513bc3a8ea63013f83ee2c7a93' type='text/javascript'%3E%3C/script%3E"));
+window.location.replace(backup_url);
 </script>
 </head>
 <body>
-<script type="text/javascript">
-
-// get IP failed
-if(typeof myip == 'undefined') {
-	window.location.replace(backup_url);
-}
-
-var geoip_url = "http://freegeoip.net/json/" + myip;
-var loaded = false;
-var timeout = 50000; // 5 seconds
-var country_name = "China";
-var timeoutFunc = function() {
-	console.log("load JSON failed");
-	window.location.replace(backup_url);
-};
-var procJsonFunc = function(json){
-	console.log("IP from " +  json.country_name);
-	if(country_name == json.country_name) {
-		window.location.replace(backup_url);
-	}
-	else {
-		window.location.replace(target_url);
-	}
-};
-// slow IP parsing => timeout
-$.ajax({
-url:geoip_url, 
-datatype: 'json',
-success: procJsonFunc,
-timeout: 5000,
-error: timeoutFunc
-});
-</script>
 </body>
 </html>
 
